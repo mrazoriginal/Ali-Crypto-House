@@ -215,26 +215,22 @@ body {
 /* === SMALLER, ROUNDER PORTFOLIO BUTTONS === */
 .portfolio-buttons {
   display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 8px;
+  justify-content: space-around;
 }
 
 .portfolio-buttons button {
-  width: 60px;           /* narrow */
-  padding: 10px 0;       /* taller */
-  border-radius: 30px;   /* fully round pill */
+  border: none;
+  border-radius: 60px;
+  padding: 2px 35px;
   background: var(--accent);
   color: white;
   font-weight: bold;
-  font-size: 13px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: 0.2s;
 }
 
 .portfolio-buttons button:hover {
   background: #a07bff;
-  transform: scale(1.1);
 }
 
 .portfolio-widget hr {
