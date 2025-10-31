@@ -190,24 +190,24 @@ body {
 /*  Floating Portfolio Widget */
 .portfolio-widget {
   position: fixed;
-  top: 230px;
+  top: 100px;
   left: 20px;
   background: rgba(20, 0, 37, 0.85);
   border: 1px solid rgba(138, 43, 226, 0.5);
   border-radius: 12px;
   padding: 14px;
-  width: 250px;
+  width: 220px;
   z-index: 1000;
   backdrop-filter: blur(4px);
   box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .portfolio-widget h3 {
   margin: 0 0 8px 0;
   text-align: center;
-  color: #ffd700; /* gold vibe */
-  font-weight: bold;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .coin-row {
@@ -215,11 +215,11 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 6px;
-  gap: 14px;
+  gap: 5px;
 }
 
 .coin-label {
-  width: 40px;
+  width: 35px;
   font-weight: bold;
 }
 
@@ -257,7 +257,7 @@ body {
 
 .portfolio-buttons button {
   border: none;
-  border-radius: 60px;
+  border-radius: 6px;
   padding: 5px 10px;
   background: var(--accent);
   color: white;
