@@ -1,12 +1,10 @@
-/* global Theme Colors*/
 :root {
-  --accent: #8a2be2; /* Main purple color used for buttons and glow */
-  --bg1: #140025; /* Deep background color */
-  --up: #00ffb7; /* Color for price going up */
-  --down: #ff6464; /* Color for price going down */
+  --accent: #8a2be2;
+  --bg1: #140025;
+  --up: #00ffb7;
+  --down: #ff6464;
 }
 
-/* Page Body Setup */
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -25,11 +23,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* goes behind all other stuff */
-  pointer-events: none; /* ignoring mouse clicks */
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* main box to the top */
 .main-box,
 .header-box,
 .updated {
@@ -37,29 +34,28 @@ body {
   z-index: 1000;
 }
 
-/* Header Style */
 .header-box {
   width: 90%;
   max-width: 800px;
   text-align: center;
   font-size: 15px;
   font-weight: 70;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   padding: 20px;
   margin: 20px 0 10px 0;
-  border-radius: 150px; /* pill shape */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 150px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   backdrop-filter: blur(4px);
 }
 
 .main-box {
   width: 90%;
   max-width: 800px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255,255,255,0.03);
   padding: 20px;
   border-radius: 15px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
   overflow: hidden;
   backdrop-filter: blur(4px);
 }
@@ -72,17 +68,11 @@ body {
   animation: floatSearch 2s ease-in-out infinite alternate;
 }
 
-/* Floating animation for search bar */
 @keyframes floatSearch {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-6px);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
 }
 
-/* Search Input */
 #search-input {
   padding: 15px;
   border-radius: 20px;
@@ -92,9 +82,9 @@ body {
   outline: none;
 }
 
-/* Buttons (both Search + Refresh) */
 #search-btn,
-#refresh-btn {
+#refresh-btn,
+#open-portfolio {
   background: var(--accent);
   color: white;
   border: none;
@@ -104,206 +94,58 @@ body {
   font-weight: 700;
   position: relative;
   overflow: hidden;
+  margin-top: 10px;
+  transition: 0.2s;
 }
 
-/* Refresh Button */
 #refresh-btn {
   display: block;
   margin: 20px auto 0 auto;
   padding: 15px 30px;
   font-size: 18px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-/* Price List Layout */
-.prices {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-/* Each Coin Row */
-.coin {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.12);
-  border-radius: 12px;
-  font-size: 21px;
-}
-
-/* Left side of each coin */
-.coin-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Coin Logo */
-.coin-img {
-  width: 40px;
-  height: 40px;
-}
-
-/* Green when price goes up */
-.coin .price.up {
-  color: var(--up);
-}
-
-/* Red when price goes down */
-.coin .price.down {
-  color: var(--down);
-}
-
-/* Last Updated Text */
-.updated {
-  margin-top: 15px;
-  font-size: 14px;
-  opacity: 0.9;
-  text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
-  font-weight: 600;
-}
-
-/* Quote Box */
-.quote-box {
-  text-align: center;
-  font-style: italic;
-  font-size: 14px;
-  opacity: 0.9;
-  margin-top: 15px;
-  transition: opacity 1s ease;
-}
-
-/* For both Particles and Emojis created by JS */
-.particle,
-.emoji {
-  position: absolute;
-  pointer-events: none;
-  z-index: 1000;
-  font-size: 20px;
-  opacity: 1;
-  transition: transform 1.2s ease, opacity 1.2s ease;
-}
-
-/* --- Floating Portfolio Widget --- */
-.portfolio-widget {
-  position: fixed;
-  top: 120px;
-  left: 20px;
-  background: rgba(20, 0, 37, 0.85);
-  border: 1px solid rgba(138, 43, 226, 0.5);
-  border-radius: 20px;
-  padding: 12px 10px;
-  width: 200px;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
-  font-size: 14px;
-}
-
-/* Header in widget */
-.portfolio-widget h3 {
-  margin: 0 0 8px 0;
-  text-align: center;
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 16px;
-}
-
-/* Coin rows */
-.coin-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  gap: 4px;
-}
-
-.coin-label {
-  width: 35px;
-  font-weight: bold;
-}
-
-.coin-row input {
-  width: 60px;
-  border: none;
-  border-radius: 12px;
-  padding: 4px;
-  text-align: center;
-  outline: none;
-}
-
-.coin-emoji {
-  width: 25px;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.coin-value {
-  width: 55px;
-  text-align: right;
-}
-
-/* Total row */
-.total-row {
-  text-align: center;
-  font-weight: 700;
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-
-/* Buttons row */
-.portfolio-buttons {
-  display: flex;
-  justify-content: space-around;
-  gap: 6px;
-}
-
-.portfolio-buttons button {
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  width: 80px;
-  background: var(--accent);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.portfolio-buttons button:hover {
+#open-portfolio:hover,
+#search-btn:hover,
+#refresh-btn:hover {
   background: #a07bff;
 }
 
-/* Divider */
-.portfolio-widget hr {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 6px 0;
+/* Coin List */
+.prices { display: flex; flex-direction: column; gap: 15px; }
+
+.coin { display: flex; align-items: center; justify-content: space-between; padding: 15px; background: rgba(0,0,0,0.12); border-radius: 12px; font-size: 21px; }
+
+.coin-left { display: flex; align-items: center; gap: 10px; }
+
+.coin-img { width: 40px; height: 40px; }
+
+.coin .price.up { color: var(--up); }
+.coin .price.down { color: var(--down); }
+
+.updated { margin-top: 15px; font-size: 14px; opacity: 0.9; text-shadow: 0 0 8px rgba(138,43,226,0.8); font-weight: 600; }
+
+.quote-box { text-align: center; font-style: italic; font-size: 14px; opacity: 0.9; margin-top: 15px; transition: opacity 1s ease; }
+
+/* Floating Portfolio */
+.portfolio-widget {
+  background: rgba(20,0,37,0.85);
+  border: 1px solid rgba(138,43,226,0.5);
+  border-radius: 20px;
+  padding: 16px;
+  width: 260px;
+  font-size: 14px;
 }
 
-/* --- Mobile Adjustments --- */
-@media (max-width: 480px) {
-  .portfolio-widget {
-    top: 80px;
-    width: 160px;
-    padding: 10px 8px;
-    font-size: 12px;
-  }
+.portfolio-widget h3 { margin: 0 0 8px 0; text-align: center; color: var(--accent); font-weight: 700; }
 
-  .coin-row input {
-    width: 50px;
-  }
-
-  .coin-value {
-    width: 45px;
-  }
-
-  .portfolio-buttons button {
-    width: 70px;
-    padding: 5px 8px;
-    font-size: 10px;
-  }
-}
+.coin-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: 5px; }
+.coin-label { width: 35px; font-weight: bold; }
+.coin-row input { width: 70px; border: none; border-radius: 10px; padding: 5px; text-align: center; outline: none; }
+.coin-emoji { width: 25px; text-align: center; transition: transform 0.2s ease; }
+.coin-value { width: 65px; text-align: right; }
+.total-row { text-align: center; font-weight: 700; margin-top: 6px; margin-bottom: 8px; }
+.portfolio-buttons { display: flex; justify-content: space-around; margin-top: 6px; }
+.portfolio-buttons button { border: none; border-radius: 12px; padding: 6px 12px; background: var(--accent); color: white; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.portfolio-buttons button:hover { background: #a07bff; }
