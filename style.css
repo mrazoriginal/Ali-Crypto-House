@@ -25,8 +25,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  pointer-events: none;
+  z-index: 0; /* goes behind all other stuff */
+  pointer-events: none; /* ignoring mouse clicks */
 }
 
 /* main box to the top */
@@ -47,7 +47,7 @@ body {
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   margin: 20px 0 10px 0;
-  border-radius: 150px;
+  border-radius: 150px; /* pill shape */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
 }
@@ -72,11 +72,17 @@ body {
   animation: floatSearch 2s ease-in-out infinite alternate;
 }
 
+/* Floating animation for search bar */
 @keyframes floatSearch {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
 }
 
+/* Search Input */
 #search-input {
   padding: 15px;
   border-radius: 20px;
@@ -86,6 +92,7 @@ body {
   outline: none;
 }
 
+/* Buttons (both Search + Refresh) */
 #search-btn,
 #refresh-btn {
   background: var(--accent);
@@ -99,6 +106,7 @@ body {
   overflow: hidden;
 }
 
+/* Refresh Button */
 #refresh-btn {
   display: block;
   margin: 20px auto 0 auto;
@@ -107,12 +115,14 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Price List Layout */
 .prices {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+/* Each Coin Row */
 .coin {
   display: flex;
   align-items: center;
@@ -123,20 +133,30 @@ body {
   font-size: 21px;
 }
 
+/* Left side of each coin */
 .coin-left {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+/* Coin Logo */
 .coin-img {
   width: 40px;
   height: 40px;
 }
 
-.coin .price.up { color: var(--up); }
-.coin .price.down { color: var(--down); }
+/* Green when price goes up */
+.coin .price.up {
+  color: var(--up);
+}
 
+/* Red when price goes down */
+.coin .price.down {
+  color: var(--down);
+}
+
+/* Last Updated Text */
 .updated {
   margin-top: 15px;
   font-size: 14px;
@@ -145,6 +165,7 @@ body {
   font-weight: 600;
 }
 
+/* Quote Box */
 .quote-box {
   text-align: center;
   font-style: italic;
@@ -154,6 +175,7 @@ body {
   transition: opacity 1s ease;
 }
 
+/* For both Particles and Emojis created by JS */
 .particle,
 .emoji {
   position: absolute;
@@ -164,64 +186,86 @@ body {
   transition: transform 1.2s ease, opacity 1.2s ease;
 }
 
-/* Floating Portfolio Widget */
+/* --- Floating Portfolio Widget --- */
 .portfolio-widget {
   position: fixed;
-  top: 100px;
+  top: 120px;
   left: 20px;
   background: rgba(20, 0, 37, 0.85);
   border: 1px solid rgba(138, 43, 226, 0.5);
-  border-radius: 12px;
-  padding: 14px;
-  width: 220px;
+  border-radius: 20px;
+  padding: 12px 10px;
+  width: 200px;
   z-index: 1000;
   backdrop-filter: blur(4px);
   box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
   font-size: 14px;
 }
 
+/* Header in widget */
 .portfolio-widget h3 {
   margin: 0 0 8px 0;
   text-align: center;
   color: var(--accent);
   font-weight: 700;
+  font-size: 16px;
 }
 
+/* Coin rows */
 .coin-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 6px;
-  gap: 5px;
+  gap: 4px;
 }
 
-.coin-label { width: 35px; font-weight: bold; }
+.coin-label {
+  width: 35px;
+  font-weight: bold;
+}
+
 .coin-row input {
-  width: 70px;
+  width: 60px;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 4px;
   text-align: center;
   outline: none;
 }
+
 .coin-emoji {
   width: 25px;
   text-align: center;
   transition: transform 0.2s ease;
 }
-.coin-value { width: 65px; text-align: right; }
-.total-row { text-align: center; font-weight: 700; margin-top: 6px; margin-bottom: 8px; }
 
-/* === SMALLER, ROUNDER PORTFOLIO BUTTONS === */
+.coin-value {
+  width: 55px;
+  text-align: right;
+}
+
+/* Total row */
+.total-row {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* Buttons row */
 .portfolio-buttons {
   display: flex;
   justify-content: space-around;
+  gap: 6px;
 }
 
 .portfolio-buttons button {
   border: none;
-  border-radius: 60px;
-  padding: 2px 35px;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+  width: 80px;
   background: var(--accent);
   color: white;
   font-weight: bold;
@@ -233,8 +277,33 @@ body {
   background: #a07bff;
 }
 
+/* Divider */
 .portfolio-widget hr {
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin: 6px 0;
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 480px) {
+  .portfolio-widget {
+    top: 80px;
+    width: 160px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .coin-row input {
+    width: 50px;
+  }
+
+  .coin-value {
+    width: 45px;
+  }
+
+  .portfolio-buttons button {
+    width: 70px;
+    padding: 5px 8px;
+    font-size: 10px;
+  }
 }
