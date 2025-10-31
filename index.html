@@ -26,6 +26,8 @@
 
     <!-- Coin Prices box -->
     <div class="prices" id="prices">
+
+      <!-- Bitcoin Info -->
       <div class="coin" data-id="bitcoin">
         <div class="coin-left">
           <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="BTC" class="coin-img" />
@@ -34,6 +36,7 @@
         <span class="price" id="bitcoin-price">Loading...</span>
       </div>
 
+      <!-- Ethereum Info -->
       <div class="coin" data-id="ethereum">
         <div class="coin-left">
           <img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png" alt="ETH" class="coin-img" />
@@ -42,6 +45,7 @@
         <span class="price" id="ethereum-price">Loading...</span>
       </div>
 
+      <!-- Tether Info -->
       <div class="coin" data-id="tether">
         <div class="coin-left">
           <img src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png" alt="USDT" class="coin-img" />
@@ -49,6 +53,7 @@
         </div>
         <span class="price" id="tether-price">Loading...</span>
       </div>
+
     </div>
 
     <!-- Random Trade Quote -->
@@ -58,12 +63,50 @@
     <button id="refresh-btn">Refresh</button>
 
     <!-- Open Portfolio Button -->
-    <button id="open-portfolio">💰 Open Portfolio</button>
+    <button id="open-portfolio-btn">💰 Open Portfolio</button>
 
   </div>
 
   <!-- Last Update Text -->
   <div class="updated" id="last-updated">💸 Last Time Since Burning money: -- 💸</div>
+
+  <!-- Floating Portfolio Widget -->
+  <div class="portfolio-widget" id="portfolio-box">
+    <button id="close-portfolio-btn" class="close-btn">❌</button>
+    <h3>😈Mini Ali😈</h3>
+
+    <div class="coin-row" id="row-btc">
+      <span class="coin-label">BTC:</span>
+      <input id="hold-btc" type="number" step="0.000001" placeholder="0.01">
+      <span class="coin-emoji" id="emoji-btc">🤔</span>
+      <span class="coin-value" id="val-btc">--</span>
+    </div>
+
+    <div class="coin-row" id="row-eth">
+      <span class="coin-label">ETH:</span>
+      <input id="hold-eth" type="number" step="0.0001" placeholder="0.5">
+      <span class="coin-emoji" id="emoji-eth">🤔</span>
+      <span class="coin-value" id="val-eth">--</span>
+    </div>
+
+    <div class="coin-row" id="row-usdt">
+      <span class="coin-label">USDT:</span>
+      <input id="hold-usdt" type="number" step="0.01" placeholder="100">
+      <span class="coin-emoji" id="emoji-usdt">🤔</span>
+      <span class="coin-value" id="val-usdt">--</span>
+    </div>
+
+    <hr>
+
+    <div class="total-row">
+      Total: <strong id="val-total">--</strong>
+    </div>
+
+    <div class="portfolio-buttons">
+      <button id="save-portfolio">🔥Burn Money🔥</button>
+      <button id="reset-portfolio">🏳️Mercy🏳️</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
