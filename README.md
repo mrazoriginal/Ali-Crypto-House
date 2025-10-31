@@ -9,7 +9,7 @@ Welcome to **Ali Crypto House** — a fun and interactive crypto dashboard featu
 - **Portfolio Widget Added:** You can now enter your BTC, ETH, and USDT holdings and see your total portfolio value update live with emoji reactions (🫠 → 🤑).  
 - **UI Cleanup:** Reworked layout and all cool stuff needed.  
 - **Particle Fix:** Solved that annoying bug where the floating particles overlapped with the Boxes and made the view look messy. Now everything stays crisp and clean.  
-- **Persistent Storage:** Your input values are now saved locally, so your data sticks even after a page refresh.  
+- **temp Storage:** Your input values are now saved in my cloud, so your data sticks even after a page refresh, again i introduced more way for you to bankrupt me:) 
 - **General Polish:** Smoother animations, better spacing, and smarter updates tied directly to the live price feed.  
 
 ---
