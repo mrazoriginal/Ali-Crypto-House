@@ -231,7 +231,7 @@ function showRandomQuote() {
 showRandomQuote();
 setInterval(showRandomQuote, 15000);
 
-// Floating Portfolio Logic
+// === Floating Portfolio Logic ===
 const coinsList = ["bitcoin", "ethereum", "tether"];
 const holdInputs = {
   bitcoin: document.getElementById("hold-btc"),
@@ -277,11 +277,11 @@ saveBtn.addEventListener("click", () => {
 resetBtn.addEventListener("click", () => {
   localStorage.removeItem("ach_holdings_v2");
   coinsList.forEach((c) => {
-    holdInputs[c].value = "?";
-    valSpans[c].textContent = "?";
+    holdInputs[c].value = "";
+    valSpans[c].textContent = "--";
     emojiSpans[c].textContent = "🤔";
   });
-  totalVal.textContent = "?";
+  totalVal.textContent = "--";
 });
 
 // Update
@@ -294,16 +294,16 @@ function updatePortfolio() {
     emoji.textContent = "🤔"; // thinking
     if (price && amount > 0) {
       const value = amount * price;
-      valSpans[c].textContent = `${formatPrice(value)}$`;
+      valSpans[c].textContent = `$${formatPrice(value)}`;
       total += value;
       setTimeout(() => (emoji.textContent = "🤑"), 300);
       emoji.style.transform = "scale(1.3)";
       setTimeout(() => (emoji.style.transform = "scale(1)"), 400);
     } else {
-      valSpans[c].textContent = "?";
+      valSpans[c].textContent = "--";
     }
   });
-  totalVal.textContent = `${formatPrice(total)}$`;
+  totalVal.textContent = `$${formatPrice(total)}`;
 }
 
 // Tie into price updates
