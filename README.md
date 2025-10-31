@@ -10,7 +10,9 @@ Welcome to **Ali Crypto House** — a fun and interactive crypto dashboard featu
 - **UI Cleanup:** Reworked layout and all cool stuff needed.  
 - **Particle Fix:** Solved that annoying bug where the floating particles overlapped with the Boxes and made the view look messy. Now everything stays crisp and clean.  
 - **temp Storage:** Your input values are now saved in my cloud, so your data sticks even after a page refresh, again i introduced more way for you to bankrupt me:) 
-- **General Polish:** Smoother animations, better spacing, and smarter updates tied directly to the live price feed.  
+- **General Polish:** Smoother animations, better spacing, and smarter updates tied directly to the live price feed.
+- **small screen crash:** Fixed for mobile view.
+
 
 ---
 
