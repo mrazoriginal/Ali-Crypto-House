@@ -72,14 +72,9 @@ body {
   animation: floatSearch 2s ease-in-out infinite alternate;
 }
 
-/* Floating animation for search bar */
 @keyframes floatSearch {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-6px);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
 }
 
 /* Search Input */
@@ -106,7 +101,6 @@ body {
   overflow: hidden;
 }
 
-/* Refresh Button */
 #refresh-btn {
   display: block;
   margin: 20px auto 0 auto;
@@ -122,7 +116,6 @@ body {
   gap: 15px;
 }
 
-/* Each Coin Row */
 .coin {
   display: flex;
   align-items: center;
@@ -133,30 +126,20 @@ body {
   font-size: 21px;
 }
 
-/* Left side of each coin */
 .coin-left {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* Coin Logo */
 .coin-img {
   width: 40px;
   height: 40px;
 }
 
-/* Green when price goes up */
-.coin .price.up {
-  color: var(--up);
-}
+.coin .price.up { color: var(--up); }
+.coin .price.down { color: var(--down); }
 
-/* Red when price goes down */
-.coin .price.down {
-  color: var(--down);
-}
-
-/* Last Updated Text */
 .updated {
   margin-top: 15px;
   font-size: 14px;
@@ -165,7 +148,6 @@ body {
   font-weight: 600;
 }
 
-/* Quote Box */
 .quote-box {
   text-align: center;
   font-style: italic;
@@ -175,7 +157,6 @@ body {
   transition: opacity 1s ease;
 }
 
-/* For both Particles and Emojis created by JS */
 .particle,
 .emoji {
   position: absolute;
@@ -186,7 +167,7 @@ body {
   transition: transform 1.2s ease, opacity 1.2s ease;
 }
 
-/*  Floating Portfolio Widget */
+/* Floating Portfolio Widget */
 .portfolio-widget {
   position: fixed;
   top: 100px;
@@ -217,10 +198,7 @@ body {
   gap: 5px;
 }
 
-.coin-label {
-  width: 35px;
-  font-weight: bold;
-}
+.coin-label { width: 35px; font-weight: bold; }
 
 .coin-row input {
   width: 70px;
@@ -231,16 +209,9 @@ body {
   outline: none;
 }
 
-.coin-emoji {
-  width: 25px;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
+.coin-emoji { width: 25px; text-align: center; transition: transform 0.2s ease; }
 
-.coin-value {
-  width: 65px;
-  text-align: right;
-}
+.coin-value { width: 65px; text-align: right; }
 
 .total-row {
   text-align: center;
@@ -249,28 +220,31 @@ body {
   margin-bottom: 8px;
 }
 
-/* Fixed Burn Money + Mercy Buttons */
+/* === FIXED PORTFOLIO BUTTONS === */
 .portfolio-buttons {
   display: flex;
-  justify-content: center; /* center buttons */
-  gap: 10px; /* space between buttons */
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .portfolio-buttons button {
-  flex: 1; /* equal width */
+  flex: 1;
+  min-width: 100px;
   text-align: center;
   border: none;
-  border-radius: 6px;
-  padding: 8px 10px;
+  border-radius: 8px;
+  padding: 8px 0;
   background: var(--accent);
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .portfolio-buttons button:hover {
   background: #a07bff;
+  transform: scale(1.05);
 }
 
 .portfolio-widget hr {
