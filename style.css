@@ -1,3 +1,4 @@
+/* Global Theme Colors */
 :root {
   --accent: #8a2be2;
   --bg1: #140025;
@@ -5,6 +6,7 @@
   --down: #ff6464;
 }
 
+/* Page Body Setup */
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -40,22 +42,22 @@ body {
   text-align: center;
   font-size: 15px;
   font-weight: 70;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   margin: 20px 0 10px 0;
   border-radius: 150px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
 }
 
 .main-box {
   width: 90%;
   max-width: 800px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   padding: 20px;
   border-radius: 15px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
   overflow: hidden;
   backdrop-filter: blur(4px);
 }
@@ -82,9 +84,7 @@ body {
   outline: none;
 }
 
-#search-btn,
-#refresh-btn,
-#open-portfolio {
+#search-btn, #refresh-btn, #open-portfolio-btn {
   background: var(--accent);
   color: white;
   border: none;
@@ -95,7 +95,6 @@ body {
   position: relative;
   overflow: hidden;
   margin-top: 10px;
-  transition: 0.2s;
 }
 
 #refresh-btn {
@@ -106,46 +105,136 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-#open-portfolio:hover,
-#search-btn:hover,
-#refresh-btn:hover {
-  background: #a07bff;
+.prices {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* Coin List */
-.prices { display: flex; flex-direction: column; gap: 15px; }
+.coin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 12px;
+  font-size: 21px;
+}
 
-.coin { display: flex; align-items: center; justify-content: space-between; padding: 15px; background: rgba(0,0,0,0.12); border-radius: 12px; font-size: 21px; }
+.coin-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.coin-left { display: flex; align-items: center; gap: 10px; }
-
-.coin-img { width: 40px; height: 40px; }
+.coin-img {
+  width: 40px;
+  height: 40px;
+}
 
 .coin .price.up { color: var(--up); }
 .coin .price.down { color: var(--down); }
 
-.updated { margin-top: 15px; font-size: 14px; opacity: 0.9; text-shadow: 0 0 8px rgba(138,43,226,0.8); font-weight: 600; }
-
-.quote-box { text-align: center; font-style: italic; font-size: 14px; opacity: 0.9; margin-top: 15px; transition: opacity 1s ease; }
-
-/* Floating Portfolio */
-.portfolio-widget {
-  background: rgba(20,0,37,0.85);
-  border: 1px solid rgba(138,43,226,0.5);
-  border-radius: 20px;
-  padding: 16px;
-  width: 260px;
+.updated {
+  margin-top: 15px;
   font-size: 14px;
+  opacity: 0.9;
+  text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+  font-weight: 600;
 }
 
-.portfolio-widget h3 { margin: 0 0 8px 0; text-align: center; color: var(--accent); font-weight: 700; }
+.quote-box {
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 15px;
+  transition: opacity 1s ease;
+}
 
-.coin-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: 5px; }
+/* Emoji & Particles */
+.particle, .emoji {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+  font-size: 20px;
+  opacity: 1;
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+/* Portfolio Widget */
+.portfolio-widget {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 0, 37, 0.95);
+  border: 1px solid rgba(138, 43, 226, 0.5);
+  border-radius: 20px;
+  padding: 15px;
+  width: 260px;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 20px rgba(138,43,226,0.5);
+  font-size: 14px;
+  display: none; /* hidden by default */
+}
+
+.portfolio-widget h3 {
+  margin: 0 0 8px 0;
+  text-align: center;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.coin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  gap: 5px;
+}
+
 .coin-label { width: 35px; font-weight: bold; }
-.coin-row input { width: 70px; border: none; border-radius: 10px; padding: 5px; text-align: center; outline: none; }
+.coin-row input {
+  width: 70px;
+  border: none;
+  border-radius: 6px;
+  padding: 4px;
+  text-align: center;
+  outline: none;
+}
 .coin-emoji { width: 25px; text-align: center; transition: transform 0.2s ease; }
 .coin-value { width: 65px; text-align: right; }
+
 .total-row { text-align: center; font-weight: 700; margin-top: 6px; margin-bottom: 8px; }
-.portfolio-buttons { display: flex; justify-content: space-around; margin-top: 6px; }
-.portfolio-buttons button { border: none; border-radius: 12px; padding: 6px 12px; background: var(--accent); color: white; font-weight: bold; cursor: pointer; transition: 0.2s; }
+
+.portfolio-buttons { display: flex; justify-content: space-around; }
+.portfolio-buttons button {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
 .portfolio-buttons button:hover { background: #a07bff; }
+
+.portfolio-widget hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 6px 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
