@@ -6,11 +6,9 @@ Welcome to **Ali Crypto House** — a fun and interactive crypto dashboard featu
 
 ## 🚀 What’s New in v3
 
-- **Right-Aligned $:** All prices and portfolio values now have `$` perfectly aligned to the right for a cleaner look.  
 - **Particle Blur Behind Boxes:** Floating particles no longer interfere with text or widgets — everything stays readable.  
 - **Portfolio Polished:** Reacts smoother with emoji animations, live updates, and better interaction feedback.  
 - **UI Boosts:** Subtle shadows, transitions, and spacing improvements for a modern, polished dashboard.  
-- **Persistent Storage:** Your portfolio inputs now survive page reloads reliably.  
 - **Mobile Layout Tweaks:** Buttons and boxes display correctly on all screen sizes.
 
 ---
@@ -22,7 +20,6 @@ Welcome to **Ali Crypto House** — a fun and interactive crypto dashboard featu
 - **Particle Fix:** Solved that annoying bug where the floating particles overlapped with the Boxes and made the view look messy. Now everything stays crisp and clean.  
 - **temp Storage:** Your input values are now saved in my cloud, so your data sticks even after a page refresh, again i introduced more way for you to bankrupt me :)  
 - **General Polish:** Smoother animations, better spacing, and smarter updates tied directly to the live price feed.  
-- **small screen crash:** Fixed for mobile view.
 
 ---
 
