@@ -1,81 +1,277 @@
+/* global Theme Colors*/
+:root {
+  --accent: #8a2be2; /* Main purple color used for buttons and glow */
+  --bg1: #140025; /* Deep background color */
+  --up: #00ffb7; /* Color for price going up */
+  --down: #ff6464; /* Color for price going down */
+}
+
+/* Page Body Setup */
 body {
-  background: #0c0c0c;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
   margin: 0;
+  font-family: "Inter", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg1);
+  overflow-x: hidden;
+}
+
+#main-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* goes behind all other stuff */
+  pointer-events: none; /* ignoring mouse clicks */
+}
+
+/* main box to the top */
+.main-box,
+.header-box,
+.updated {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Header Style */
+.header-box {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 70;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  margin: 20px 0 10px 0;
+  border-radius: 150px; /* pill shape */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
 }
 
 .main-box {
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.03);
   padding: 20px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255,255,255,0.1);
-  width: 350px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  backdrop-filter: blur(4px);
 }
 
-.price-box {
+.search-container {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.portfolio-box {
-  margin-top: 20px;
-  padding: 12px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 10px;
-  font-size: 14px;
-}
-
-.portfolio-inputs {
-  display: flex;
-  gap: 8px;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 20px;
+  animation: floatSearch 2s ease-in-out infinite alternate;
+  /* makes it float up/down */
 }
 
-.portfolio-inputs label {
-  display: flex;
-  gap: 6px;
-  align-items: center;
+/* Floating animation for search bar */
+@keyframes floatSearch {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
 }
 
-.portfolio-inputs input {
-  padding: 6px 8px;
-  border-radius: 6px;
+/* Search Input */
+#search-input {
+  padding: 15px;
+  border-radius: 20px;
   border: none;
+  width: 60%;
+  max-width: 300px;
   outline: none;
-  width: 100px;
 }
 
-.portfolio-inputs button {
-  padding: 6px 10px;
+/* Buttons (both Search + Refresh) */
+#search-btn,
+#refresh-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Refresh Button */
+#refresh-btn {
+  display: block;
+  margin: 20px auto 0 auto;
+  padding: 15px 30px;
+  font-size: 18px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Price List Layout */
+.prices {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Each Coin Row */
+.coin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  font-size: 21px;
+}
+
+/* Left side of each coin */
+.coin-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Coin Logo */
+.coin-img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Green when price goes up */
+.coin .price.up {
+  color: var(--up);
+}
+
+/* Red when price goes down */
+.coin .price.down {
+  color: var(--down);
+}
+
+/* Last Updated Text */
+.updated {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.9;
+  text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+  font-weight: 600;
+}
+
+/* Quote Box */
+.quote-box {
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 15px;
+  transition: opacity 1s ease;
+}
+
+/* For both Particles and Emojis created by JS */
+.particle,
+.emoji {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+  font-size: 20px;
+  opacity: 1;
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+/*  Floating Portfolio Widget */
+.portfolio-widget {
+  position: fixed;
+  top: 230px;
+  left: 20px;
+  background: rgba(20, 0, 37, 0.85);
+  border: 1px solid rgba(138, 43, 226, 0.5);
+  border-radius: 12px;
+  padding: 14px;
+  width: 250px;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+  font-size: 18px;
+}
+
+.portfolio-widget h3 {
+  margin: 0 0 8px 0;
+  text-align: center;
+  color: #ffd700; /* gold vibe */
+  font-weight: bold;
+}
+
+.coin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  gap: 14px;
+}
+
+.coin-label {
+  width: 40px;
+  font-weight: bold;
+}
+
+.coin-row input {
+  width: 70px;
   border: none;
   border-radius: 6px;
-  background: #8247e5;
+  padding: 4px;
+  text-align: center;
+  outline: none;
+}
+
+.coin-emoji {
+  width: 25px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.coin-value {
+  width: 65px;
+  text-align: right;
+}
+
+.total-row {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.portfolio-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.portfolio-buttons button {
+  border: none;
+  border-radius: 60px;
+  padding: 5px 10px;
+  background: var(--accent);
   color: white;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.portfolio-inputs button:hover {
+.portfolio-buttons button:hover {
   background: #a07bff;
 }
 
-.portfolio-summary {
-  text-align: center;
-  opacity: 0.95;
-}
-
-hr {
+.portfolio-widget hr {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 6px 0;
 }
