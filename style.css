@@ -70,7 +70,6 @@ body {
   gap: 8px;
   margin-bottom: 20px;
   animation: floatSearch 2s ease-in-out infinite alternate;
-  /* makes it float up/down */
 }
 
 /* Floating animation for search bar */
@@ -250,15 +249,19 @@ body {
   margin-bottom: 8px;
 }
 
+/* Fixed Burn Money + Mercy Buttons */
 .portfolio-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* center buttons */
+  gap: 10px; /* space between buttons */
 }
 
 .portfolio-buttons button {
+  flex: 1; /* equal width */
+  text-align: center;
   border: none;
   border-radius: 6px;
-  padding: 5px 10px;
+  padding: 8px 10px;
   background: var(--accent);
   color: white;
   font-weight: bold;
