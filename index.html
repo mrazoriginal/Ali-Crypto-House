@@ -1,74 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ali Crypto House v2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-box">
+    <h1>Ali Crypto House</h1>
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Ali Crypto House</title>
-    <link rel="stylesheet" href="./style.css">
+    <div class="price-box">
+      <div>BTC: <span id="price-btc">--</span></div>
+      <div>ETH: <span id="price-eth">--</span></div>
+    </div>
 
-  </head>
-    
-  <body>
-  <!-- Background Canvas -->
-<canvas id="main-canvas"></canvas>
-
-<!-- Header Section -->
-<div class="header-box">
-  <h1>Welcome to Ali Crypto House👋🏻<h1>
-      <p>🤓به سایت کریپتو علی خوش اومدید</p>
-</div>
-
-<div class="main-box">
-
-  <!-- Search Bar -->
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Do you wanna search?😇" />
-    <button id="search-btn">Search</button>
+    <!-- Portfolio Value Widget -->
+    <div class="portfolio-box" id="portfolio-box">
+      <h3>My Mini Portfolio</h3>
+      <div class="portfolio-inputs">
+        <label>BTC: <input id="hold-btc" type="number" step="0.000001" placeholder="0.0123"></label>
+        <label>ETH: <input id="hold-eth" type="number" step="0.0001" placeholder="0.5"></label>
+        <button id="save-portfolio">Save</button>
+        <button id="reset-portfolio">Reset</button>
+      </div>
+      <div class="portfolio-summary">
+        <div>BTC value: <span id="val-btc">--</span></div>
+        <div>ETH value: <span id="val-eth">--</span></div>
+        <hr>
+        <div>Total portfolio: <strong id="val-total">--</strong></div>
+      </div>
+    </div>
   </div>
 
-  <!-- Coin Prices box -->
-  <div class="prices" id="prices">
-
-    <!-- Bitcoin Info -->
-    <div class="coin" data-id="bitcoin">
-      <div class="coin-left">
-        <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="BTC" class="coin-img" />
-        <span class="symbol">BTC</span>
-      </div>
-      <span class="price" id="bitcoin-price">Loading...</span>
-    </div>
-
-    <!-- Ethereum Info -->
-    <div class="coin" data-id="ethereum">
-      <div class="coin-left">
-        <img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png" alt="ETH" class="coin-img" />
-        <span class="symbol">ETH</span>
-      </div>
-      <span class="price" id="ethereum-price">Loading...</span>
-    </div>
-
-    <!-- Tether Info -->
-    <div class="coin" data-id="tether">
-      <div class="coin-left">
-        <img src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png" alt="USDT" class="coin-img" />
-        <span class="symbol">USDT</span>
-      </div>
-      <span class="price" id="tether-price">Loading...</span>
-    </div>
-
-  </div>
-
-  <!-- Random Trade Quote -->
-  <div class="quote-box" id="quote-box">Loading Bullshit...</div>
-
-  <!-- Refresh Button -->
-  <button id="refresh-btn">Refresh</button>
-</div>
-
-<!-- Last Update Text -->
-<div class="updated" id="last-updated">💸 Last Time Since Burning money: -- 💸</div>
-    <script  src="./script.js"></script>
-
-  </body>
-  
+  <script src="script.js"></script>
+</body>
 </html>
