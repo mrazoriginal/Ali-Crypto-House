@@ -221,10 +221,9 @@ body {
 }
 
 .portfolio-buttons button {
-  flex: none;
-  width: 90px;
-  padding: 6px 0;
-  border-radius: 25px;
+  width: 60px;           /* narrow */
+  padding: 10px 0;       /* taller */
+  border-radius: 30px;   /* fully round pill */
   background: var(--accent);
   color: white;
   font-weight: bold;
